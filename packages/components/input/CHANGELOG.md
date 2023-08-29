@@ -1,5 +1,12 @@
 # @nextui-org/input
 
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies [[`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5)]:
+  - @nextui-org/system@2.0.6
+
 ## 2.1.3
 
 ### Patch Changes

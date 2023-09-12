@@ -6,12 +6,12 @@ export const siteConfig = {
   ogImage: "https://nextui.org/twitter-cards/nextui.jpeg",
   author: "Junior Garcia",
   email: "jrgarciadev@gmail.com",
-  siteUrl: "https://nextui.org",
+  siteUrl: "https://mondayui.org",
   creator: "@getnextui",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nextui.org",
+    url: "https://mondayui.org",
     siteName: "NextUI",
     description: "Beautiful, fast and modern React UI Library",
     images: [
@@ -31,11 +31,11 @@ export const siteConfig = {
     creator: "@getnextui",
   },
   links: {
-    github: "https://github.com/nextui-org/nextui",
+    github: "https://github.com/mondayui-org/mondayui",
     twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui-docs-v2.vercel.app",
+    docs: "https://mondayui.org",
     discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://donate.stripe.com/payments/payment-links",
-    portfolio: "https://jrgarciadev.com",
+    sponsor: "https://donate.stripe.com/8wM8zN9iV1kj4BWbII",
+    portfolio: "https://mondayui.org",
   },
 };

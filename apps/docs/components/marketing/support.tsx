@@ -29,7 +29,7 @@ const supportAccounts = [
     title: "Patreon",
     description: "Sponsor the creator, Junior Garcia.",
     icon: <PatreonIcon className="text-pink-500" />,
-    href: "https://www.patreon.com/jrgarciadev?fan_landing=true",
+    href: "https://donate.stripe.com",
     isExternal: true,
   },
 ];

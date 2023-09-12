@@ -27,9 +27,9 @@ const supportAccounts = [
   },
   {
     title: "Patreon",
-    description: "Sponsor the creator, Junior Garcia.",
-    icon: <PatreonIcon className="text-pink-500" />,
-    href: "https://donate.stripe.com",
+    description: "Sponsor the creator, MondayUI.",
+    icon: <HeartBoldIcon className="text-pink-500" />,
+    href: "https://donate.stripe.com/8wM8zN9iV1kj4BWbII",
     isExternal: true,
   },
 ];

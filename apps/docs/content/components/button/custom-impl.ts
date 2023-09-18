@@ -1,13 +1,11 @@
 const App = `import {forwardRef} from "react";
+import {useButton, Ripple, Spinner} from "@nextui-org/react";
 
-import {useButton, Drip, Spinner} from "@nextui-org/react";
 
 const MyButton = forwardRef((props, ref) => {
   const {
     domRef,
     children,
-    classNames,
-    drips,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -16,19 +14,22 @@ const MyButton = forwardRef((props, ref) => {
     isLoading,
     disableRipple,
     getButtonProps,
+    getRippleProps,
   } = useButton({
     ref,
     ...props,
   });
 
+  const {ripples} = getRippleProps();
+
   return (
-    <button ref={domRef} className={classNames} {...getButtonProps()}>
+    <button ref={domRef} {...getButtonProps()}>
       {startContent}
       {isLoading && spinnerPlacement === "start" && spinner}
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
-      {!disableRipple && <Drip drips={drips} />}
+      {!disableRipple && <Ripple ripples={ripples} />}
     </button>
   );
 });
@@ -38,8 +39,7 @@ MyButton.displayName = "MyButton";
 export default MyButton;`;
 
 const AppTs = `import {forwardRef} from "react";
-
-import {useButton, Drip, Spinner, ButtonProps as BaseButtonProps} from "@nextui-org/react";
+import {useButton, Ripple, Spinner, ButtonProps as BaseButtonProps} from "@nextui-org/react";
 
 export interface ButtonProps extends BaseButtonProps {}
 
@@ -47,8 +47,6 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     domRef,
     children,
-    classNames,
-    drips,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -57,19 +55,22 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     isLoading,
     disableRipple,
     getButtonProps,
+    getRippleProps,
   } = useButton({
     ref,
     ...props,
   });
 
+  const {ripples} = getRippleProps();
+
   return (
-    <button ref={domRef} className={classNames} {...getButtonProps()}>
+    <button ref={domRef} {...getButtonProps()}>
       {startContent}
       {isLoading && spinnerPlacement === "start" && spinner}
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
-      {!disableRipple && <Drip drips={drips} />}
+      {!disableRipple && <Ripple ripples={ripples} />}
     </button>
   );
 });

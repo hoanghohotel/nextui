@@ -2,7 +2,7 @@ import type {Selection} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {accordionItem} from "@nextui-org/theme";
+import {accordionItem, button} from "@nextui-org/theme";
 import {
   AnchorIcon,
   MoonIcon,
@@ -13,6 +13,8 @@ import {
   InvalidCardIcon,
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
+import {Input} from "@nextui-org/input";
+import {Button} from "@nextui-org/button";
 
 import {Accordion, AccordionProps, AccordionItem} from "../src";
 import {AccordionItemProps} from "../src";
@@ -230,17 +232,43 @@ const ControlledTemplate = (args: AccordionProps) => {
   console.log(selectedKeys);
 
   return (
-    <Accordion {...args} selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
-      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
-        {defaultContent}
-      </AccordionItem>
-    </Accordion>
+    <div className="flex flex-col gap-4">
+      <Accordion {...args} selectedKeys={selectedKeys}>
+        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+          {defaultContent}
+        </AccordionItem>
+      </Accordion>
+
+      <div className="flex gap-2">
+        <Button
+          onPress={() => {
+            setSelectedKeys(new Set(["1"]));
+          }}
+        >
+          Open 1
+        </Button>
+        <Button
+          onPress={() => {
+            setSelectedKeys(new Set(["2"]));
+          }}
+        >
+          Open 2
+        </Button>
+        <Button
+          onPress={() => {
+            setSelectedKeys(new Set(["3"]));
+          }}
+        >
+          Open 3
+        </Button>
+      </div>
+    </div>
   );
 };
 
@@ -307,6 +335,42 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
           </p>
         }
       >
+        {defaultContent}
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+const WithFormTemplate = (args: AccordionProps) => {
+  const form = (
+    <form className="flex flex-col gap-4">
+      <Input
+        isRequired
+        label="Email"
+        placeholder="Enter your email"
+        type="email"
+        onValueChange={(value) =>
+          // eslint-disable-next-line no-console
+          console.log(value)
+        }
+      />
+      <Input isRequired label="Password" placeholder="Enter your password" type="password" />
+
+      <div className="flex gap-2 justify-end">
+        <button className={button({color: "primary"})}>Login</button>
+      </div>
+    </form>
+  );
+
+  return (
+    <Accordion {...args}>
+      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+        {form}
+      </AccordionItem>
+      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
         {defaultContent}
       </AccordionItem>
     </Accordion>
@@ -384,6 +448,14 @@ export const WithStartContent = {
 
 export const Variants = {
   render: VariantsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithForm = {
+  render: WithFormTemplate,
 
   args: {
     ...defaultProps,
